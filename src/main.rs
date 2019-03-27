@@ -1,5 +1,5 @@
 
-extern crate hist;
+extern crate v_hist;
 extern crate rand;
 
 use rand::Rng;
