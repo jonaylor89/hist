@@ -39,7 +39,7 @@ impl Histogram {
 
         for x in 0..self.num_entries {
             println!();
-            let mut s = format!("{label:<width$}", label=self.labels[x], width=self.label_len);
+            let mut s = format!("{label:>width$}", label=self.labels[x], width=self.label_len);
             print!("{0}{1}", s, "|");
 
             for y in 0..width {
