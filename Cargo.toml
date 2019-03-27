@@ -2,6 +2,10 @@
 name = "hist"
 version = "0.1.0"
 authors = ["John Naylor <jonaylor89@gmail.com>"]
+description = "A really quick way to make histograms"
+repository = "https://github.com/jonaylor89/hist"
+license = "MIT"
+readme = "README.md"
 exclude = [
   "assets/*"
 ]
