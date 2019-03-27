@@ -1,44 +1,46 @@
 
-struct Histogram {
-    num_entries: i32,
-    labels: Vec<str>,
-    label_len: i32,
-    values: Vec<i32>,
-    entry_limit: i32
+extern crate termion;
+
+pub struct Histogram {
+    num_entries: usize,
+    labels: Vec<String>,
+    label_len: usize,
+    values: Vec<usize>,
+}
+
+pub fn init() -> Histogram {
+    return Histogram{
+        num_entries: 0,
+        label_len: 1,
+        values: Vec::new(),
+        labels: Vec::new(),
+    };
 }
 
 impl Histogram {
 
-    pub fn init() {
-        return Histogram{
-            num_entries: 0,
-            entry_limit: 0,
-            label_len: 1;
-            values: vec![],
-            labels: vec![],
-        };
-    }
-    
-    pub fn add_entry(self, label: str, num_digits: i32) -> None {
+    pub fn add_entry(&mut self, label: String, value: usize) {
+
+        if label.len() > self.label_len {
+            self.label_len = label.len();
+        }
+
         self.values.push(value);
         self.labels.push(label);
-        self.num_entries++;
+        self.num_entries += 1;
 
-        if label.length > self.label_len {
-            self.label_len = label.length;
-        }
     }
 
-    pub fn draw(self) -> None {
+    pub fn draw(&self) {
 
-        let max = self.values.iter().max();
-        let width = termion.terminal_size() - (self.label_len + 2);
+        let max = self.values.iter().max().unwrap();
+        let width = termion::terminal_size().unwrap().0 as usize - (self.label_len + 2);
         let dw = max / width;
 
-        for x in 0..num_entries {
+        for x in 0..self.num_entries {
             println!();
-            let mut s = format!(":width$", self.labels[x], width=self.label_len);
-            println!(s + "|");
+            let mut s = format!("{label:<width$}", label=self.labels[x], width=self.label_len);
+            print!("{0}{1}", s, "|");
 
             for y in 0..width {
                 if self.values[x]  > dw * y {
@@ -54,20 +56,20 @@ impl Histogram {
 
 }
 
-fn draw_from_array(arr: Vec<i32>, size: i32) {
-    let max = arr.iter().max();
-    let num_digits = ((size as f32).log10() + 1).floor();
-    let width = termion.terminal_size.unwrap().1 - (num_digits + 2);
+pub fn draw_from_array(arr: Vec<usize>, size: usize) {
+    let max = arr.iter().max().unwrap();
+    let num_digits = ((size as f32).log10() + 1.0).floor() as usize;
+    let width = termion::terminal_size().unwrap().1 as usize - (num_digits + 2);
     let dw = max / width;
 
     for x in 0..size {
 
-        let mut s: str = format!("{:0width$}", x, width=num_digits);
+        let mut s: String = format!("{:0width$}", x, width=num_digits);
         println!();
-        println!(s + "|");
+        println!("{0}{1}", s, "|");
 
         for y in 0..(width - num_digits + 2) {
-            if arr[x] > dw * y {
+            if arr[x as usize] > dw * y {
                 print!("#");
             } else {
                 break; 
