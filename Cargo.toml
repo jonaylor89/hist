@@ -1,8 +1,8 @@
 [package]
-name = "hist"
+name = "v-hist"
 version = "0.1.0"
 authors = ["John Naylor <jonaylor89@gmail.com>"]
-description = "A really quick way to make histograms"
+description = "A really quick way to make histograms that fix the terminal"
 repository = "https://github.com/jonaylor89/hist"
 license = "MIT"
 readme = "README.md"
