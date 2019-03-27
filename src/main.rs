@@ -1,21 +1,16 @@
 
 extern crate hist;
+extern crate rand;
+
+use rand::Rng;
 
 fn main() {
     let mut h = hist::init();
+    let mut rng = rand::thread_rng();    
 
-    h.add_entry("first".to_string(), 100);
-    h.add_entry("second".to_string(), 200);
-    h.add_entry("third".to_string(), 300);
-    h.add_entry("fourth".to_string(), 400);
-    h.add_entry("fifth".to_string(), 420);
-    h.add_entry("sixth".to_string(), 235);
-    h.add_entry("seventh".to_string(), 275);
-    h.add_entry("eigth".to_string(), 310);
-    h.add_entry("nineth".to_string(), 560);
-    h.add_entry("tenth".to_string(), 41);
-    h.add_entry("eleventh".to_string(), 341);
-
+    for x in 0..200 {
+        h.add_entry(format!("{}", x).to_string(), rng.gen_range(0, 3000)) ;
+    }
 
     h.draw();
 }

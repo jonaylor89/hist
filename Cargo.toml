@@ -5,3 +5,4 @@ authors = ["John Naylor <jonaylor89@gmail.com>"]
 
 [dependencies]
 termion = "*"
+rand = "*"
