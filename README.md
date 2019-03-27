@@ -7,10 +7,10 @@ Terminal histograms
 
 
 ```rust
-extern crate hist;
+extern crate v_hist;
 
 fn main() {
-    let mut h = hist::init();
+    let mut h = v_hist::init();
 
     h.add_entry("first".to_string(), 100);
     h.add_entry("second".to_string(), 200);
