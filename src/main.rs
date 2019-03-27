@@ -5,7 +5,7 @@ extern crate rand;
 use rand::Rng;
 
 fn main() {
-    let mut h = hist::init();
+    let mut h = v_hist::init();
     let mut rng = rand::thread_rng();    
 
     for x in 0..200 {
