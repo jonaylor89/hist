@@ -32,7 +32,7 @@ fn main() {
 and Voila
 
 
-![screenshot](screenshot.png)
+![screenshot](assets/screenshot.png)
 
 
 ----------------
