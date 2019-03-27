@@ -11,5 +11,5 @@ exclude = [
 ]
 
 [dependencies]
-termion = "*"
-rand = "*"
+termion = "v1.5.1"
+rand = "v0.6.5"
