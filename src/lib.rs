@@ -6,6 +6,7 @@ pub struct Histogram {
     labels: Vec<String>,
     label_len: usize,
     values: Vec<usize>,
+    pub max_width: usize,
 }
 
 pub fn init() -> Histogram {
@@ -14,6 +15,7 @@ pub fn init() -> Histogram {
         label_len: 1,
         values: Vec::new(),
         labels: Vec::new(),
+        max_width: 0,
     };
 }
 
@@ -34,7 +36,7 @@ impl Histogram {
     pub fn draw(&self) {
 
         let max = self.values.iter().max().unwrap();
-        let width = termion::terminal_size().unwrap().0 as usize - (self.label_len + 2);
+        let width = if self.max_width > 0 { self.max_width } else { termion::terminal_size().unwrap().0 as usize - (self.label_len + 2) };
         let dw = max / width;
 
         for x in 0..self.num_entries {
