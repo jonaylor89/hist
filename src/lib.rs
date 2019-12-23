@@ -32,7 +32,7 @@ impl Histogram {
         let width = if self.max_width > 0 {
             self.max_width
         } else {
-            console::Term::stdout().size().0 as usize - (self.label_len + 2)
+            console::Term::stdout().size().1 as usize - (self.label_len + 2)
         };
         let dw = max / width;
 
