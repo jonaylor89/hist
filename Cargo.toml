@@ -1,6 +1,6 @@
 [package]
 name = "v_hist"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["John Naylor <jonaylor89@gmail.com>"]
 description = "A really quick way to make histograms that fix the terminal"
 repository = "https://github.com/jonaylor89/hist"
