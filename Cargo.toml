@@ -11,5 +11,5 @@ exclude = [
 ]
 
 [dependencies]
-termion = "1.5.1"
+console = "0.9"
 rand = "0.6.5"
