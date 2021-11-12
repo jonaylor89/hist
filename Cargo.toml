@@ -1,6 +1,6 @@
 [package]
 name = "v_hist"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["John Naylor <jonaylor89@gmail.com>"]
 description = "A really quick way to make histograms that fix the terminal"
 repository = "https://github.com/jonaylor89/hist"
@@ -11,5 +11,5 @@ exclude = [
 ]
 
 [dependencies]
-console = "0.9"
-rand = "0.6.5"
+console = "0.15.0"
+rand = "0.8.4"
